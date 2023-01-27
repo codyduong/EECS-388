@@ -1,14 +1,14 @@
 #include <stdio.h>
 
-void main () {
+int main () {
   float n1;
   float n2;
   char o;
   int temp = 0;
 
   // the order is unorthodox but w/e. input validation is non-existent, so don't mess it up
-  printf("Calculator: Type two operands and an operator and press enter ('n1 n2 o'): \n");
-  scanf ("%f %f %c", &n1, &n2, &o);
+  printf("Calculator: Type an operand operator operand (space-seperated 'n1 o n2'): \n");
+  scanf ("%f %c %f", &n1, &o, &n2);
   // use case-switch to calculate, default to invalid input
   switch (o)
     {
@@ -26,6 +26,7 @@ void main () {
       break;
     default:
       printf ("Invalid input, expected operator to be one of ['-', '+', '/', '*']");
+      return 1;
       break;
     }
 }

@@ -6,7 +6,7 @@ tests if divisible by 2/3 with no remainder.
 Otherwise tests every number that isn't already divisible by 2 or 3, (so 6k+1)
 that is below sqrt(n), since upper half is the same.
 
-Local C target is set below C99, so there are no bools. RIP.
+Local C target is set below C99, so there are no bools...
 */
 int isPrime(int n) {
   if (n == 2 || n == 3) {
@@ -29,7 +29,7 @@ int isPrime(int n) {
 /*
 Takes in user input for upper bound (exclusive) and only prints out if it is prime
 */
-void main () {
+int main () {
   int bound;
 
   printf("Input prime upper bound:\n");
