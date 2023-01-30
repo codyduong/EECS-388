@@ -35,6 +35,7 @@
 
 int main()
 {
+   /*
    int gpio = GREEN_LED; //GREEN_LED is a macro. It is essentially a placeholder that is replaced by the compiler during compilation into the correct pin number
                          //To see the actual pin numbers, look for GREEN_LED (or the other colors) in the eecs388_lib.h file
 
@@ -51,16 +52,17 @@ int main()
       gpio_write(gpio, OFF); // same as before, but this time we are setting the pin to logi low or OFF state. Same as turning the pin off
       delay(300);
    }
+   */
 
    int gpio_array[3] = {RED_LED, GREEN_LED, BLUE_LED};
    int gpio_array_size = 3;
    int gpio_index = 0; // Iterates thru 0-3, mapped to the gpio_array, except for 3 which is the whole array (for white color);
-   for (int i=0; i<2; i++) {
+   for (int i=0; i<3; i++) {
       // Enable output on all the gpio
       gpio_mode(gpio_array[gpio_index], OUTPUT);
    }
 
-   while(++gpio_index) {
+   while(1) {
       if (gpio_index == 3) {
          // handle white
          gpio_write_array(gpio_array, gpio_array_size, ON);
@@ -76,6 +78,7 @@ int main()
          delay(500);
          gpio_write(current_gpio, OFF);
          delay(300);
+         gpio_index++;
       }
    }
 }
