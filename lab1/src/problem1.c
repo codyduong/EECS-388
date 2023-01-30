@@ -4,11 +4,10 @@ int main () {
   float n1;
   float n2;
   char o;
-  int temp = 0;
 
   // the order is unorthodox but w/e. input validation is non-existent, so don't mess it up
-  printf("Calculator: Type an operand operator operand (space-seperated 'n1 o n2'): \n");
-  scanf ("%f %c %f", &n1, &o, &n2);
+  printf("Calculator: Type an operand operator operand: \n");
+  scanf ("%f%c%f", &n1, &o, &n2);
   // use case-switch to calculate, default to invalid input
   switch (o)
     {

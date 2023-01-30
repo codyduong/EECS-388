@@ -13,5 +13,5 @@ make build/problem1
 
 ## Run
 ```sh
-build/problem
+build/problem1
 ```
