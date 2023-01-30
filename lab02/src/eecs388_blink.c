@@ -36,7 +36,7 @@
 int main()
 {
    /*
-   int gpio = GREEN_LED; //GREEN_LED is a macro. It is essentially a placeholder that is replaced by the compiler during compilation into the correct pin number
+   int gpio = BLUE_LED; //GREEN_LED is a macro. It is essentially a placeholder that is replaced by the compiler during compilation into the correct pin number
                          //To see the actual pin numbers, look for GREEN_LED (or the other colors) in the eecs388_lib.h file
 
    gpio_mode(gpio, OUTPUT); //this function sets the pin referred to by the variable gpio to act as an OUTPUT pin, i.e. send signals out of it
@@ -57,13 +57,13 @@ int main()
    int gpio_array[3] = {RED_LED, GREEN_LED, BLUE_LED};
    int gpio_array_size = 3;
    int gpio_index = 0; // Iterates thru 0-3, mapped to the gpio_array, except for 3 which is the whole array (for white color);
-   for (int i=0; i<3; i++) {
+   for (int i=0; i<gpio_array_size; i++) {
       // Enable output on all the gpio
-      gpio_mode(gpio_array[gpio_index], OUTPUT);
+      gpio_mode(gpio_array[i], OUTPUT);
    }
 
    while(1) {
-      if (gpio_index == 3) {
+      if (gpio_index >= 3) {
          // handle white
          gpio_write_array(gpio_array, gpio_array_size, ON);
          delay(500);
@@ -73,10 +73,9 @@ int main()
          // reset to start
          gpio_index = 0;
       } else {
-         int current_gpio = gpio_array[gpio_index];
-         gpio_write(current_gpio, ON);
+         gpio_write(gpio_array[gpio_index], ON);
          delay(500);
-         gpio_write(current_gpio, OFF);
+         gpio_write(gpio_array[gpio_index], OFF);
          delay(300);
          gpio_index++;
       }
