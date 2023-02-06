@@ -114,8 +114,8 @@ char ser_read()
 
   /* busy-wait if rx is full*/
   do {
-    regval = *(volatile uint32_t *)(UART0_CTRL_ADDR + UART_RXCTRL);
+    regval = *(volatile uint32_t *)(UART0_CTRL_ADDR + UART_RXDATA);
   } while (regval & 0x80000000);
 
-  return *(volatile uint32_t *)(UART0_CTRL_ADDR + UART_RXCTRL);
+  return *(volatile uint32_t *)(UART0_CTRL_ADDR + UART_RXDATA);
 }

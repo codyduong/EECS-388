@@ -30,7 +30,7 @@ int main()
     while(1)
     {
         ser_printline("\ntype 'r' or 'g' or 'b': "); 
-        c = ser_read();        
+        c = ser_read();
         gpio_write(led_gpio, OFF);
 
         // Echo/write back the character to UART
